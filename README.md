@@ -5,5 +5,5 @@ Reposistorio para prueba tecnica utilizando seguridad en una aplicacion web
 ### - Java 11
 
 ## Front 
-### - Angular 
-### - node js 9.6.5
+### - Angular cli v15.2.6
+### - node js v18.16.0
