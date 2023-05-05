@@ -2,8 +2,8 @@ package com.prueba.hulkstoreback.auth;
 
 import com.prueba.hulkstoreback.Usuario;
 import com.prueba.hulkstoreback.config.JwtService;
-import com.prueba.hulkstoreback.repositorio.UsuarioRepository;
-import com.prueba.hulkstoreback.seguridad.Rol;
+import com.prueba.hulkstoreback.repository.UsuarioRepository;
+import com.prueba.hulkstoreback.security.Rol;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

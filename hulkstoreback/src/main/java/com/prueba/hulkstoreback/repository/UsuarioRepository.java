@@ -1,4 +1,4 @@
-package com.prueba.hulkstoreback.repositorio;
+package com.prueba.hulkstoreback.repository;
 
 import com.prueba.hulkstoreback.Usuario;
 import org.springframework.data.jpa.repository.JpaRepository;

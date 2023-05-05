@@ -1,4 +1,4 @@
-package com.prueba.hulkstoreback.seguridad;
+package com.prueba.hulkstoreback.security;
 
 public enum Rol {
     USER,
