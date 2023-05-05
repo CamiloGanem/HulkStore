@@ -1,6 +1,6 @@
 package com.prueba.hulkstoreback;
 
-import com.prueba.hulkstoreback.seguridad.Rol;
+import com.prueba.hulkstoreback.security.Rol;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
