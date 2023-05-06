@@ -14,4 +14,8 @@ export class AuthService {
     return this.http.post(`${this.URL}/autenticar`, usuario);
   }
 
+  registarUsuario(usuario: any):Observable<any>{
+    return this.http.post(`${this.URL}/registrar`, usuario)
+  }
+
 }

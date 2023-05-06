@@ -1,7 +1,7 @@
 <div class="form-container">
   <mat-card>
     <mat-card-content>
-      <form [formGroup]="loginForm" class="login-form" (submit)="onSubmit()">
+      <form [formGroup]="loginForm" class="login-form">
         <h2>Iniciar sesión</h2>
         <mat-form-field appearance="fill">
           <mat-label>Nombre de usuario</mat-label>
@@ -11,8 +11,8 @@
           <mat-label>Contraseña</mat-label>
           <input matInput formControlName="password" type="password" required>
         </mat-form-field>
-        <button mat-raised-button class="buton_sesion" type="submit">Iniciar sesión</button>
-        <a href="#" class="crear_user_link">Crear cuenta de usuario</a>
+        <button (click)="onSubmit()" mat-raised-button class="buton_sesion" type="submit">Iniciar sesión</button>
+        <button (click)="abrirPopup()" mat-button class="buton_registro" type="submit">¡Registrate!</button>
       </form>
     </mat-card-content>
   </mat-card>

@@ -19,6 +19,8 @@ import { MatInputModule } from '@angular/material/input';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { UsuarioComponent } from './components/usuario/usuario.component';
 import { ModalUsuarioComponent } from './components/usuario/modal-usuario/modal-usuario.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { ModalUsuarioComponent } from './components/usuario/modal-usuario/modal-
     MatDialogModule,
     MatCardModule,
     MatInputModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { AppComponent } from 'src/app/app.component';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {AuthService} from "../../service/auth/auth.service";
+import {MatDialog} from "@angular/material/dialog";
+import {ModalUsuarioComponent} from "../usuario/modal-usuario/modal-usuario.component";
+import {AppComponent} from "../../app.component";
 
 
 
@@ -17,10 +19,15 @@ export class LoginComponent implements OnInit{
     password: new FormControl('', Validators.required)
   });
 
-  constructor(private auth: AuthService, private router: Router) {
+  constructor(private auth: AuthService, private router: Router, public dialog: MatDialog,
+              private appComponent: AppComponent) {
+
+    this.appComponent.isLoggedIn = false;
+
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
 
   onSubmit(): void {
@@ -28,10 +35,23 @@ export class LoginComponent implements OnInit{
     const password = this.loginForm.get('password')?.value;
     const usuario: any = {email: email ? email : '',  password: password ? password : ''};
 
-    this.auth.autenticar(usuario).subscribe(res =>{
+    this.auth.autenticar(usuario).subscribe(() =>{
       this.router.navigate(['/inicio']);
     }, error => {
-      console.log(error)})
+      console.log(error)
+      alert("Usuario no valido, por favor intente nuevamente.")
+    })
   }
 
+  abrirPopup() {
+    const dialogRef = this.dialog.open(ModalUsuarioComponent, {
+      width: '450px',
+      height: '560px',
+      data: { title: 'Registro de usuario', name: '', password: '' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+    });
+  }
 }
