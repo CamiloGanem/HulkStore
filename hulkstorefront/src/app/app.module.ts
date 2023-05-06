@@ -17,12 +17,16 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { InicioComponent } from './components/inicio/inicio.component';
+import { UsuarioComponent } from './components/usuario/usuario.component';
+import { ModalUsuarioComponent } from './components/usuario/modal-usuario/modal-usuario.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    InicioComponent
+    InicioComponent,
+    UsuarioComponent,
+    ModalUsuarioComponent
   ],
   imports: [
     BrowserModule,
