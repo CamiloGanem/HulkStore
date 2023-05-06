@@ -16,8 +16,8 @@ export class LoginComponent implements OnInit{
     email: new FormControl('', Validators.required),
     password: new FormControl('', Validators.required)
   });
-  constructor(private authService: AuthService, private router: Router, private appComponent: AppComponent) {
-    this.appComponent.isLoggedIn = false;
+
+  constructor(private auth: AuthService, private router: Router) {
   }
 
   ngOnInit(): void {}
@@ -26,13 +26,12 @@ export class LoginComponent implements OnInit{
   onSubmit(): void {
     const email = this.loginForm.get('email')?.value;
     const password = this.loginForm.get('password')?.value;
-    const usuario: any = { id: 0, nombre: '',  email: email ? email : '',  password: password ? password : '', token: '' };
+    const usuario: any = {email: email ? email : '',  password: password ? password : ''};
 
-    if (this.authService.login(usuario)) {
+    this.auth.autenticar(usuario).subscribe(res =>{
       this.router.navigate(['/inicio']);
-    } else {
-      alert('Nombre de usuario o contraseña incorrectos');
-    }
+    }, error => {
+      console.log(error)})
   }
 
 }

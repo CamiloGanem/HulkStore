@@ -1,41 +1,17 @@
 import { Injectable } from '@angular/core';
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private usuarios: any[] = [
-    { id: 1, nombre: 'Usuario 1', email: 'user1@example.com', password: '123', token: '' },
-    { id: 2, nombre: 'Usuario 2', email: 'user2@example.com', password: '321', token: ''},
-  ];
+  private URL: String = "http://localhost:1020/api/v1/auth"
+  constructor(private http:HttpClient) {}
 
-  private usuarioActual: any | null = null;
-
-  login(usuario: any): any {
-    const usuarioAutenticado = this.usuarios.find(u =>
-      u.email === usuario.email && u.password === usuario.password);
-
-    if (usuarioAutenticado) {
-      usuarioAutenticado.token = 'dummy_token';
-      this.usuarioActual = usuarioAutenticado;
-      return true;
-    }
-    return false;
+  autenticar(usuario: any): Observable<any>{
+    return this.http.post(`${this.URL}/autenticar`, usuario);
   }
 
-  logout(): void {
-    if (this.usuarioActual) {
-      delete this.usuarioActual.token;
-      this.usuarioActual = null;
-    }
-  }
-
-  getUsuarioActual(): any | null {
-    return this.usuarioActual;
-  }
-
-  isAuthenticated(): boolean {
-    return !!this.usuarioActual?.token;
-  }
 }
