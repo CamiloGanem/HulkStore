@@ -1,0 +1,37 @@
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+
+}
+mat-form-field {
+  display: block;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Ajusta esto para establecer la altura deseada */
+}
+
+.login-form {
+  width: 300px; /* Ajusta esto para establecer el ancho deseado */
+}
+
+.buton_sesion{
+  background-color: #18BE76 !important;
+}
+
+.crear_user_link{
+  margin-top: 10px;
+}
+
