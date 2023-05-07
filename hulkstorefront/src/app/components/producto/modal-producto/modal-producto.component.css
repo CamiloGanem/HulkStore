@@ -1,0 +1,19 @@
+.container{
+  width: 600px;
+}
+.container mat-form-field + mat-form-field {
+  margin-left: 10px !important;
+}
+
+.container mat-form-field{
+  width: 250px;
+  padding-left: 25px;
+}
+
+.botones{
+  padding-inline: 34%;
+}
+
+.full-width{
+  width: 89% !important;
+}

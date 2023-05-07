@@ -21,6 +21,8 @@ import { UsuarioComponent } from './components/usuario/usuario.component';
 import { ModalUsuarioComponent } from './components/usuario/modal-usuario/modal-usuario.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ProductoComponent } from './components/producto/producto.component';
+import { ModalProductoComponent } from './components/producto/modal-producto/modal-producto.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     LoginComponent,
     InicioComponent,
     UsuarioComponent,
-    ModalUsuarioComponent
+    ModalUsuarioComponent,
+    ProductoComponent,
+    ModalProductoComponent
   ],
   imports: [
     BrowserModule,

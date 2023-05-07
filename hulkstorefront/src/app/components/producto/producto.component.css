@@ -1,0 +1,13 @@
+.tabla-productos-cont{
+  width: 80%;
+  padding-left: 11%;
+}
+
+.flex-container{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn_agregar{
+  background-color: #25d286;
+}
