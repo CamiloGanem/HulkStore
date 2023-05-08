@@ -1,5 +1,6 @@
 package com.prueba.hulkstoreback.auth;
 
+import com.prueba.hulkstoreback.dto.Respuesta;
 import com.prueba.hulkstoreback.exception.ExceptionService;
 import com.prueba.hulkstoreback.service.EmpleadoService;
 import lombok.RequiredArgsConstructor;
@@ -16,15 +17,23 @@ public class AuthenticationController {
     private final EmpleadoService empleadoService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<AuthenticationResponse> register(
+    public ResponseEntity<String> register(
             @RequestBody RegisterRequest request
     ) throws ExceptionService {
+        Respuesta resp = service.validateUserAndEmploye(
+                request.getEmail(),
+                request.getEmpleado().getIden_empleado()
+        );
         try {
-            empleadoService.registrarEmpleado(request.getEmpleado());
-            return ResponseEntity.ok(service.register(request));
+            if(resp.getDato().equals(true)){
+                empleadoService.registrarEmpleado(request.getEmpleado());
+                service.register(request);
+            }
         } catch (ExceptionService e) {
             throw new ExceptionService(e);
         }
+
+        return ResponseEntity.ok(resp.getMensaje());
     }
 
     @PostMapping("/autenticar")
@@ -33,4 +42,10 @@ public class AuthenticationController {
     ){
         return ResponseEntity.ok(service.authenticate(request));
     }
+
+    @GetMapping("/getTokenUser")
+    public ResponseEntity<Respuesta> getTokenUser(){
+        return ResponseEntity.ok(service.getTokenUser());
+    }
+
 }
