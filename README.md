@@ -1,8 +1,8 @@
 # HulkStore
-Reposistorio para prueba tecnica utilizando seguridad en una aplicacion web
+Reposistorio para prueba tecnica iuvity
 
 ## Back
-### - Java 11
+### - Java 17
 
 ## Front 
 ### - Angular cli v15.2.6
