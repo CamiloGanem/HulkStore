@@ -10,18 +10,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "hs_carrito_compras")
-public class CarritoCompra {
+public class Carrito {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id_carrito_compra;
 
-    @ManyToOne
-    @JoinColumn(name = "id_producto", foreignKey = @ForeignKey(name = "id_producto", value = ConstraintMode.CONSTRAINT))
-    private Producto producto;
+    private Integer id_producto;
 
-    @OneToOne
-    @JoinColumn(name = "id_empleado", foreignKey = @ForeignKey(name = "id_empleado", value = ConstraintMode.CONSTRAINT))
-    private Empleado empleado;
+    private Integer id_empleado;
 
     private int cantidad_carrito;
 }

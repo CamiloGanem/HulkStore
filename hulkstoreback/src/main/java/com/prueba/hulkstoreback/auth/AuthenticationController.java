@@ -17,7 +17,7 @@ public class AuthenticationController {
     private final EmpleadoService empleadoService;
 
     @PostMapping("/registrar")
-    public ResponseEntity<String> register(
+    public ResponseEntity<Respuesta> register(
             @RequestBody RegisterRequest request
     ) throws ExceptionService {
         Respuesta resp = service.validateUserAndEmploye(
@@ -33,7 +33,7 @@ public class AuthenticationController {
             throw new ExceptionService(e);
         }
 
-        return ResponseEntity.ok(resp.getMensaje());
+        return ResponseEntity.ok(resp);
     }
 
     @PostMapping("/autenticar")
