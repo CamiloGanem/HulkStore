@@ -1,1 +1,28 @@
-<h2>¡Bienvenido a HulkStore!</h2>
+<div class="container-card" *ngIf="productos.length > 0; else elseBlock">
+  <mat-card *ngFor="let producto of productos" class="product-card">
+    <img mat-card-image src="{{ producto.imageUrl }}" alt="{{ producto.name }}">
+    <mat-card-header>
+      <mat-card-title>{{ producto.nombre_producto }}</mat-card-title>
+      <mat-card-subtitle>{{ producto.descripcion_producto }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <p>{{ producto.precio_producto | currency }}</p>
+      <p>{{ producto.cantidad_producto }} en stock</p>
+    </mat-card-content>
+    <mat-card-content style="display: flex; justify-content: space-around;
+                             padding-inline: 70px;">
+      <button mat-button>+</button>
+      <p>0</p>
+      <button mat-button>-</button>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-flat-button style="background-color: #18BE76">¡Comprar!</button>
+      <button mat-stroked-button style="color: #18BE76">Agregar al carrito</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+<ng-template #elseBlock>
+  <div >
+    <p>Por el momento no hay productos disponibles.</p>
+  </div>
+</ng-template>

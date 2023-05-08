@@ -45,8 +45,8 @@ export class LoginComponent implements OnInit{
 
   abrirPopup() {
     const dialogRef = this.dialog.open(ModalUsuarioComponent, {
-      width: '450px',
-      height: '560px',
+      width: '600px',
+      height: '500px',
       data: { title: 'Registro de usuario', name: '', password: '' }
     });
 
